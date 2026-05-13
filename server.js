@@ -20,6 +20,7 @@ app.use(cors({
   origin: [
     'https://admin.meradhanda.in',
     'https://meradhanda.in',
+    'https://www.meradhanda.in',
     'http://localhost:5173',
     'http://localhost:3000'
   ],
