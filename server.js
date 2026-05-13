@@ -11,6 +11,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url} from ${req.headers.origin}`);
+  next();
+});
+
 app.use(cors({
   origin: [
     'https://admin.meradhanda.in',
@@ -20,7 +25,8 @@ app.use(cors({
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+  credentials: true,
+  optionsSuccessStatus: 200
 }));
 app.use(express.json());
 
